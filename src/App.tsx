@@ -35,13 +35,7 @@ export const App: React.FC = () => {
   const filteredTodos = getFilteredTodos(todos, filter);
 
   function getCountActive(): number {
-    return todos.reduce((acc, el) => {
-      if (!el.completed) {
-        return acc + 1;
-      }
-
-      return acc;
-    }, 0);
+    return todos.filter(todo => !todo.completed).length;
   }
 
   useEffect(() => {
